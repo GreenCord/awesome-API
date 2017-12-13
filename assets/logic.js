@@ -416,13 +416,21 @@ $( document ).ready(function() {
       // });
       var picimg = $('<img>').attr('src', $this.attr('data-img'));
       var pictxt = $('<p>').text($this.attr('data-txt'));
+      var $piccard = $('<div>').attr('class','card');
+      var $piccardimg = $('<div>').attr('class','card-image');
+      $piccardimg.append(picimg);
+      $piccardimg.append($('<span>').attr({'class':'card-title','style': 'text-shadow: 1px 1px 2px black;'}).text($this.attr('data-txt')));
+      $piccard.append($piccardimg);
+
       var savebtn = $('<button>').attr({
         'class': 'savebtn waves-effect waves-light btn',
         'id': 'savethis',
         'data-img': $this.attr('data-img'),
         'data-txt': $this.attr('data-txt')
       }).text('Save SlapIt Image');
-      $picmodalContent.text('').append(picimg).append(pictxt).append(savebtn);
+      // $picmodalContent.text('').append(picimg).append(pictxt).append(savebtn);
+      $picmodalContent.text('').append($piccard).append(savebtn);
+
     }); // end .pubbtn click check
 
     // track clicks for the generated Save button
